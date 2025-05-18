@@ -4,14 +4,15 @@ import NewTask from './NewTask';
 import {v4 as uuidv4} from 'uuid';
 import EditTask from './EditTask';
 import ProgressBar from './ProgressBar';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {faCircleCheck} from '@fortawesome/free-solid-svg-icons';
+
 uuidv4();
 const Home = () => {
     const [todos,setTodos] = useState([])
     const [progress,setProgress] = useState(0)
-    const addTodo = todo=>{
-        setTodos([...todos,{id:uuidv4(), task:todo, completed: false, isEditing:false}])
+    const addTodo = (todo,prior)=>{
+        setTodos([...todos,{id:uuidv4(), task:todo, priority: prior, completed: false, isEditing:false}])
+        console.log(todos);
+        
     }
     useEffect(()=>{
         var count = todos.reduce((sum,todo)=>todo.completed===true?sum+1:sum,0)
@@ -29,10 +30,8 @@ const Home = () => {
     const editTodo = id =>{
         setTodos(todos.map(todo=>todo.id===id? {...todo,isEditing: !todo.isEditing}: todo))
     }
-    const updateTodo = (value,id)=>{
-        
-        setTodos(todos.map(todo=>todo.id===id? {...todo, task: value , isEditing: !todo.isEditing}: todo))
-        
+    const updateTodo = (value,id,prior)=>{
+        setTodos(todos.map(todo=>todo.id===id? {...todo, task: value,priority:prior , isEditing: !todo.isEditing}: todo))
     }
     return (
         <div className='TodoWrapper'>

@@ -47,7 +47,7 @@ h1 {
   width: 60vw;
   color: #fff;
 }
-.todo-input-select{
+.todo-input-select, option{
   outline: none;
   background: none;
   padding: 0.5rem 1rem;
@@ -57,6 +57,7 @@ h1 {
   color: #fff;
 
 }
+
 
 .todo-input::placeholder {
   color: #ffffff4d;
@@ -116,13 +117,21 @@ h1 {
 
 .progress-bar {
   height: 100%;
-  background-color: #FF0B55;
+  background-color: green;
   color: black;
   text-align: center;
   line-height: 20px;
   transition: width 0.3s ease;
 }
-
+.PriorityIcons{
+  background-color: #000000;
+  width: 20px;
+  height: 25px;
+  padding: 4px;
+  border-radius: 5px;
+  margin-bottom: 0%;
+  margin-right: 10px;
+}
 .progress{
   padding: 2px;
 }
